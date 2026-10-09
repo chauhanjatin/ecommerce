@@ -1,0 +1,411 @@
+@import url("https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap");
+@import "tailwindcss";
+
+:root {
+  /* Base */
+  --bg: #ffffff;
+  --white: #ffffff;
+  --black: #000000;
+
+  /* Text */
+  --text: #4b5563;
+  --text-h: #111827;
+  --text-heading: #374151;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --text-subtle: #d1d5db;
+  --text-soft: #e5e7eb;
+  --placeholder: #b0b0b0;
+
+  /* Borders */
+  --border: #e5e7eb;
+  --border-light: #dedfe1;
+  --border-strong: #9ca3af;
+  --border-mid: #6b7280;
+
+  /* Surfaces */
+  --code-bg: #f3f4f6;
+  --surface: #ffffff; 
+  --surface-alt: #f9f9f9;
+  --surface-muted: #a3a3a3;
+  --surface-dark: #3b3b3b;
+  --control: #5b5b5b;
+  --btn: #2d2d2d;
+  --footer: #464646;
+  --footer-brands: #757575;
+  --image-bg: #d9d9d9;
+  --text-light: #8c8c8c;
+
+  /* Brand */
+  --primary: #ab00fa;
+  --accent: #2563eb;
+  --danger: #ef4444;
+
+  /* Fonts */
+  --font: "Clash Display", sans-serif;
+  --heading: "Clash Display", sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+
+  /* Breakpoints (reference values — mirrored in @theme for Tailwind variants) */
+  --screen-xs: 475px;
+  --screen-sm: 640px;
+  --screen-md: 768px;
+  --screen-lg: 1024px;
+  --screen-xl: 1280px;
+  --screen-2xl: 1536px;
+
+  /* Layout (responsive — updated via media queries below) */
+  --page-x: 1rem;
+  --page-y: 2.5rem;
+  --section-gap: 4rem;
+  --hero-min-h: 320px;
+  --auth-min-h: 500px;
+  --categories-min-h: 500px;
+  --container-max: 1440px;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --auth-min-h: auto;
+    --categories-min-h: 220px;
+  }
+}
+
+@media (min-width: 640px) {
+  :root {
+    --page-x: 1.5rem;
+    --hero-min-h: 400px;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --page-x: 2.5rem;
+    --page-y: 3rem;
+    --section-gap: 5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --page-x: 4rem;
+    --hero-min-h: 480px;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --page-x: 6.25rem;
+    --page-y: 4rem;
+    --section-gap: 6rem;
+    --hero-min-h: 500px;
+  }
+}
+
+[data-theme="dark"] {
+  --bg: #0f0f0f;
+  --text: #d1d5db;
+  --text-h: #f9fafb;
+  --text-heading: #e5e7eb;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+  --placeholder: #6b7280;
+  --border: #2a2a2a;
+  --border-light: #333333;
+  --border-strong: #6b7280;
+  --border-mid: #4b5563;
+  --code-bg: #1f1f1f;
+  --surface: #161616;
+  --surface-alt: #1a1a1a;
+  --surface-muted: #3a3a3a;
+  --control: #8a8a8a;
+  --image-bg: #2a2a2a;
+  --text-light: #9ca3af;
+}
+
+@theme {
+  --font-sans: var(--font);
+  --font-heading: var(--heading);
+  --font-mono: var(--mono);
+
+  /* Breakpoints (must be literal values — CSS vars don't work in @media) */
+  --breakpoint-xs: 29.6875rem;
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+  --breakpoint-2xl: 96rem;
+
+  /* Responsive layout spacing */
+  --spacing-page-x: var(--page-x);
+  --spacing-page-y: var(--page-y);
+  --spacing-section-gap: var(--section-gap);
+  --spacing-container-max: var(--container-max);
+  --min-height-hero: var(--hero-min-h);
+  --min-height-auth: var(--auth-min-h);
+  --min-height-categories: var(--categories-min-h);
+
+  --color-bg: var(--bg);
+  --color-white: var(--white);
+  --color-black: var(--black);
+  --color-textwhite: var(--white);
+
+  --color-text: var(--text);
+  --color-text-h: var(--text-h);
+  --color-text-heading: var(--text-heading);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-text-subtle: var(--text-subtle);
+  --color-text-soft: var(--text-soft);
+  --color-placeholder: var(--placeholder);
+
+  --color-border: var(--border);
+  --color-border-light: var(--border-light);
+  --color-border-strong: var(--border-strong);
+  --color-border-mid: var(--border-mid);
+
+  --color-code-bg: var(--code-bg);
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
+  --color-surface-muted: var(--surface-muted);
+  --color-surface-dark: var(--surface-dark);
+  --color-control: var(--control);
+  --color-btn: var(--btn);
+  --color-footer: var(--footer);
+  --color-footer-brands: var(--footer-brands);
+  --color-image-bg: var(--image-bg);
+  --color-text-light: var(--text-light);
+
+  --color-primary: var(--primary);
+  --color-accent: var(--accent);
+  --color-danger: var(--danger);
+}
+
+html {
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--bg);
+}
+
+.font-body {
+  font-family: var(--font);
+}
+
+.font-heading {
+  font-family: var(--heading);
+}
+
+.page-x {
+  padding-left: var(--page-x);
+  padding-right: var(--page-x);
+}
+
+.container-app {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Shared form & card utilities */
+.input-field {
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  border-radius: 9999px;
+  border: 1px solid var(--border-strong);
+  font-size: 0.875rem;
+  color: var(--text);
+  background: var(--surface);
+  transition: border-color 0.15s;
+}
+
+.input-field-sm {
+  padding: 0.625rem 1.25rem;
+}
+
+.input-field::placeholder {
+  color: var(--placeholder);
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--border-mid);
+}
+
+.textarea-field {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border-radius: 1rem;
+  border: 1px solid var(--border-strong);
+  font-size: 0.875rem;
+  color: var(--text);
+  background: var(--surface);
+  resize: none;
+  transition: border-color 0.15s;
+}
+
+.textarea-field::placeholder {
+  color: var(--placeholder);
+}
+
+.textarea-field:focus {
+  outline: none;
+  border-color: var(--border-mid);
+}
+
+.label-field {
+  display: block;
+  color: var(--text-heading);
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.btn-primary {
+  background: var(--btn);
+  color: var(--white);
+  font-weight: 500;
+  transition: background-color 0.15s;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: var(--black);
+}
+
+.auth-card {
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.section-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 640px) {
+  .section-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+}
+
+/* Dual range price slider */
+.price-range {
+  position: relative;
+  height: 1.25rem;
+  display: flex;
+  align-items: center;
+}
+
+.price-range__track {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 0.25rem;
+  border-radius: 9999px;
+  background: var(--border);
+}
+
+.price-range__fill {
+  position: absolute;
+  height: 0.25rem;
+  border-radius: 9999px;
+  background: var(--btn);
+}
+
+.price-range__input {
+  position: absolute;
+  width: 100%;
+  height: 1.25rem;
+  margin: 0;
+  pointer-events: none;
+  appearance: none;
+  background: transparent;
+  outline: none;
+}
+
+.price-range__input::-webkit-slider-thumb {
+  appearance: none;
+  pointer-events: auto;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 9999px;
+  background: var(--btn);
+  border: 3px solid var(--white);
+  box-shadow: 0 0 0 1px var(--btn);
+  cursor: pointer;
+}
+
+.price-range__input::-moz-range-thumb {
+  pointer-events: auto;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 9999px;
+  background: var(--btn);
+  border: 3px solid var(--white);
+  box-shadow: 0 0 0 1px var(--btn);
+  cursor: pointer;
+}
+
+.price-range__input::-webkit-slider-runnable-track {
+  height: 0.25rem;
+  background: transparent;
+}
+
+.price-range__input::-moz-range-track {
+  height: 0.25rem;
+  background: transparent;
+}
+
+.filter-check {
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid var(--border-strong);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: var(--surface);
+}
+
+.filter-check.is-checked {
+  background: var(--btn);
+  border-color: var(--btn);
+}
+
+.size-pill {
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.8125rem;
+  color: var(--text-heading);
+  background: var(--surface);
+  transition: border-color 0.15s, background-color 0.15s, color 0.15s;
+  cursor: pointer;
+  text-align: center;
+}
+
+.size-pill:hover {
+  border-color: var(--border-mid);
+}
+
+.size-pill.is-active {
+  background: var(--btn);
+  border-color: var(--btn);
+  color: var(--white);
+}
