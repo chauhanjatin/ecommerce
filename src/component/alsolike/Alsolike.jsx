@@ -53,7 +53,7 @@ function Alsolike() {
                   <span className="text-text-h text-[13px] font-semibold">
                     {product.price}
                   </span>
-                </div>
+                </div>1
               </div>
               <button onClick={(e) => handleAddToCart(product, e)} className="text-text hover:text-text-h transition-colors rounded-full border border-border-strong p-0.5 mt-1 shrink-0 z-20 relative cursor-pointer">
                 <Plus size={14} strokeWidth={2} />

@@ -19,6 +19,10 @@ function Login() {
       if (user) {
         localStorage.setItem('token', 'mock-jwt-token-' + Date.now());
         localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('userEmail', user.email);
+        if (user.fullName) {
+          localStorage.setItem('userName', user.fullName);
+        }
         window.dispatchEvent(new Event('cartUpdated'));
         navigate("/home");
       } else {

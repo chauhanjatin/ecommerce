@@ -15,7 +15,7 @@ function Categories() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:min-h-[400px] lg:min-h-categories">
-        <Link to="/categories?category=bedroom">
+        <Link to="/products?category=bedroom">
           <div className="relative bg-surface-muted rounded-xl overflow-hidden cursor-pointer group min-h-[220px] md:min-h-0 md:h-full">
             <img
               src="https://i.pinimg.com/originals/df/d6/ef/dfd6efcc7f778d4f470195e526bb5cf1.jpg"
@@ -30,7 +30,7 @@ function Categories() {
         </Link>
 
         <div className="flex flex-col gap-4 sm:gap-6 md:h-full">
-          <Link to="/categories?category=livingroom" className="relative bg-surface-muted rounded-xl overflow-hidden cursor-pointer group flex-1 min-h-[180px] md:min-h-0 flex flex-col">
+          <Link to="/products?category=livingroom" className="relative bg-surface-muted rounded-xl overflow-hidden cursor-pointer group flex-1 min-h-[180px] md:min-h-0 flex flex-col">
             <img
               src="https://www.luxebook.in/wp-content/uploads/2019/08/Image-3-1024x717.jpg"
               alt="Living Room"
@@ -41,7 +41,7 @@ function Categories() {
             </div>
             <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors"></div>
           </Link>
-          <Link to="/categories?category=diningroom" className="relative bg-surface-muted rounded-xl overflow-hidden cursor-pointer group flex-1 min-h-[180px] md:min-h-0 flex flex-col">
+          <Link to="/products?category=diningroom" className="relative bg-surface-muted rounded-xl overflow-hidden cursor-pointer group flex-1 min-h-[180px] md:min-h-0 flex flex-col">
             <img
               src="https://ikiru.in/cdn/shop/files/buy-dining-furniture-set-anish-dining-table-with-6-wayane-chair-without-arms-by-orange-tree-on-ikiru-online-store-1.jpg?v=1739208434"
               alt="Dining Room"
@@ -54,7 +54,7 @@ function Categories() {
           </Link>
         </div>
 
-        <Link to="/categories?category=sofaset">
+        <Link to="/products?category=sofaset">
           <div className="relative bg-surface-muted rounded-xl overflow-hidden cursor-pointer group min-h-[220px] md:min-h-0 md:h-full">
             <img
               src="https://www.betterhomeindia.com/wp-content/uploads/2026/01/Chinstown-sofaset.jpg"

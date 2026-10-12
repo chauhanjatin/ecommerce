@@ -65,6 +65,8 @@ function Header({ theme = "dark" }) {
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("userEmail");
+    localStorage.removeItem("userName");
     window.dispatchEvent(new Event('cartUpdated'));
     closeMenu();
   };
@@ -113,28 +115,28 @@ function Header({ theme = "dark" }) {
                   className={`absolute top-full left-0 mt-2 w-48 rounded-lg shadow-lg border py-2 ${isDark ? "bg-surface-dark border-white/10" : "bg-surface border-border"}`}
                 >
                   <Link
-                    to="/categories?category=bedroom"
+                    to="/products?category=bedroom"
                     className={`block px-4 py-2 text-sm ${hoverClass}`}
                     onClick={closeMenu}
                   >
                     Bedroom
                   </Link>
                   <Link
-                    to="/categories?category=livingroom"
+                    to="/products?category=livingroom"
                     className={`block px-4 py-2 text-sm ${hoverClass}`}
                     onClick={closeMenu}
                   >
                     Living Room
                   </Link>
                   <Link
-                    to="/categories?category=diningroom"
+                    to="/products?category=diningroom"
                     className={`block px-4 py-2 text-sm ${hoverClass}`}
                     onClick={closeMenu}
                   >
                     Dining Room
                   </Link>
                   <Link
-                    to="/categories?category=sofaset"
+                    to="/products?category=sofaset"
                     className={`block px-4 py-2 text-sm ${hoverClass}`}
                     onClick={closeMenu}
                   >
@@ -297,28 +299,28 @@ function Header({ theme = "dark" }) {
                       All Products
                     </Link>
                     <Link
-                      to="/categories?category=bedroom"
+                      to="/products?category=bedroom"
                       className={`text-base ${hoverClass}`}
                       onClick={closeMenu}
                     >
                       Bedroom
                     </Link>
                     <Link
-                      to="/categories?category=livingroom"
+                      to="/products?category=livingroom"
                       className={`text-base ${hoverClass}`}
                       onClick={closeMenu}
                     >
                       Living Room
                     </Link>
                     <Link
-                      to="/categories?category=diningroom"
+                      to="/products?category=diningroom"
                       className={`text-base ${hoverClass}`}
                       onClick={closeMenu}
                     >
                       Dining Room
                     </Link>
                     <Link
-                      to="/categories?category=sofaset"
+                      to="/products?category=sofaset"
                       className={`text-base ${hoverClass}`}
                       onClick={closeMenu}
                     >

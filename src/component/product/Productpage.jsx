@@ -79,10 +79,20 @@ function Productpage() {
     alert('Added to cart!');
   };
 
+  const getCategoryTitle = () => {
+    switch (activeCategory) {
+      case 'bedroom': return 'Bedroom Furniture'
+      case 'livingroom': return 'Living Room Furniture'
+      case 'diningroom': return 'Dining Room Furniture'
+      case 'sofaset': return 'Sofa Sets'
+      default: return 'Our Collection Of Products'
+    }
+  }
+
   return (
     <div className="flex-1 w-full font-sans min-w-0">
-      <h2 className="font-heading text-2xl sm:text-3xl font-semibold text-text-heading mb-4 sm:mb-6">
-        Our Collection Of Products
+      <h2 className="font-heading text-2xl sm:text-3xl font-semibold text-text-heading mb-4 sm:mb-6 capitalize">
+        {getCategoryTitle()}
       </h2>
 
       <div className="relative w-full mb-6 sm:mb-8">

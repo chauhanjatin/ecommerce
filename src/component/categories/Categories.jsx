@@ -126,6 +126,7 @@ function Categories() {
             </div>
           </div>
         ))}
+        
       </div>
 
       <div className="flex flex-col items-center gap-4 sm:gap-6 pb-8">
