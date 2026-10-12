@@ -19,6 +19,7 @@ function Login() {
       if (user) {
         localStorage.setItem('token', 'mock-jwt-token-' + Date.now());
         localStorage.setItem('isLoggedIn', 'true');
+        window.dispatchEvent(new Event('cartUpdated'));
         navigate("/home");
       } else {
         alert("Invalid credentials");

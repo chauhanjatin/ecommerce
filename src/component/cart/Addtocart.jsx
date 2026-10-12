@@ -1,20 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { X, Minus, Plus } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
+import { getCartItems, setCartItems, getCartKey } from "../../utils/cart";
 
 function Addtocart() {
   const navigate = useNavigate();
-  const [cartItems, setCartItems] = useState(() => {
-    return JSON.parse(localStorage.getItem('cartItems')) || [];
-  });
+  const [cartItems, setCartItemsState] = useState(() => getCartItems());
   
   const [showGuestPopup, setShowGuestPopup] = useState(false);
   const [guestEmail, setGuestEmail] = useState("");
   const [emailError, setEmailError] = useState("");
 
+  useEffect(() => {
+    const handleCartSync = () => {
+      setCartItemsState(getCartItems());
+    };
+    window.addEventListener('cartUpdated', handleCartSync);
+    window.addEventListener('storage', handleCartSync);
+    return () => {
+      window.removeEventListener('cartUpdated', handleCartSync);
+      window.removeEventListener('storage', handleCartSync);
+    };
+  }, []);
+
   const updateCart = (newCart) => {
+    setCartItemsState(newCart);
     setCartItems(newCart);
-    localStorage.setItem('cartItems', JSON.stringify(newCart));
   };
 
   const handleRemove = (id) => {

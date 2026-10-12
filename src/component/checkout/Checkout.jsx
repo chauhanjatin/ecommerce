@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Check } from 'lucide-react'
 import Checkoutmethod from './Checkoutmethod'
+import { getCartItems, clearCartItems } from '../../utils/cart'
 
 function CheckoutComponent() {
   const [cartItems, setCartItems] = useState([]);
@@ -23,8 +24,7 @@ function CheckoutComponent() {
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
-    const items = JSON.parse(localStorage.getItem('cartItems')) || [];
-    setCartItems(items);
+    setCartItems(getCartItems());
   }, []);
 
   const subtotal = cartItems.reduce((acc, item) => acc + item.total, 0);
@@ -89,14 +89,14 @@ function CheckoutComponent() {
     localStorage.setItem('userOrders', JSON.stringify([newOrder, ...existingOrders]));
 
     // Clear cart upon successful order
-    localStorage.removeItem('cartItems');
+    clearCartItems();
     setCartItems([]);
 
     setShowPopup(true);
   };
 
   const handleGoHome = () => {
-    localStorage.removeItem('cartItems');
+    clearCartItems();
     navigate('/home');
   };
 

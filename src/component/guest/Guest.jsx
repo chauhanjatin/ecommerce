@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import Header from '../navbar/Header'
 import Footer from '../footer/footer'
 import { Check } from 'lucide-react'
+import { getCartItems, clearCartItems } from '../../utils/cart'
 
 function GuestComponent() {
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ function GuestComponent() {
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
-    const items = JSON.parse(localStorage.getItem('cartItems')) || [];
+    const items = getCartItems();
     if (items.length === 0) {
       navigate('/cart');
     }
@@ -73,13 +74,13 @@ function GuestComponent() {
     }
 
     // Clear cart upon successful order
-    localStorage.removeItem('cartItems');
+    clearCartItems();
     setCartItems([]);
     setShowPopup(true);
   };
 
   const handleGoHome = () => {
-    localStorage.removeItem('cartItems');
+    clearCartItems();
     localStorage.removeItem('guestEmail');
     navigate('/home');
   };

@@ -17,6 +17,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { useLocation, Link, Navigate, useNavigate } from "react-router-dom";
+import { addToCart } from "../../utils/cart";
 function Productdetail() {
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState("description");
@@ -144,8 +145,7 @@ function Productdetail() {
   const galleryImages = product.galleryImages || [product.image, img2, img3];
 
   const handleAddToCart = (redirect = false) => {
-    const currentCart = JSON.parse(localStorage.getItem("cartItems")) || [];
-    const numericPrice = parseFloat(product.price.replace(/[^0-9.]/g, ""));
+    const numericPrice = parseFloat(product.price.toString().replace(/[^0-9.]/g, "")) || 0;
     const newItem = {
       id: product.id || Date.now(),
       title: product.name,
@@ -155,19 +155,7 @@ function Productdetail() {
       image: product.image,
     };
 
-    const existingItemIndex = currentCart.findIndex(
-      (item) => item.id === newItem.id,
-    );
-    if (existingItemIndex > -1) {
-      currentCart[existingItemIndex].quantity += quantity;
-      currentCart[existingItemIndex].total =
-        currentCart[existingItemIndex].quantity *
-        currentCart[existingItemIndex].price;
-    } else {
-      currentCart.push(newItem);
-    }
-
-    localStorage.setItem("cartItems", JSON.stringify(currentCart));
+    addToCart(newItem);
     if (redirect) {
       navigate("/cart");
     } else {

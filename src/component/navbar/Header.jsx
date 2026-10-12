@@ -65,6 +65,7 @@ function Header({ theme = "dark" }) {
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("isLoggedIn");
+    window.dispatchEvent(new Event('cartUpdated'));
     closeMenu();
   };
 

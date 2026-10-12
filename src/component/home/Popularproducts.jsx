@@ -1,6 +1,7 @@
 import React from 'react'
 import { Plus, ChevronRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { addToCart } from '../../utils/cart'
 import img1 from '../../assets/diningroom/diningroom2.webp'
 import img1_2 from '../../assets/diningroom/diningroom2(2).jpg'
 import img1_3 from '../../assets/diningroom/diningroom2(3).jpg'
@@ -112,8 +113,7 @@ function Popularproducts() {
   const handleAddToCart = (product, e) => {
     e.stopPropagation();
     e.preventDefault();
-    const currentCart = JSON.parse(localStorage.getItem('cartItems')) || [];
-    const numericPrice = parseFloat(product.price.replace(/[^0-9.]/g, ''));
+    const numericPrice = parseFloat(product.price.toString().replace(/[^0-9.]/g, '')) || 0;
     const newItem = {
       id: product.id,
       title: product.name,
@@ -123,15 +123,7 @@ function Popularproducts() {
       image: product.image
     };
     
-    const existingItemIndex = currentCart.findIndex(item => item.id === newItem.id);
-    if (existingItemIndex > -1) {
-      currentCart[existingItemIndex].quantity += 1;
-      currentCart[existingItemIndex].total = currentCart[existingItemIndex].quantity * currentCart[existingItemIndex].price;
-    } else {
-      currentCart.push(newItem);
-    }
-    
-    localStorage.setItem('cartItems', JSON.stringify(currentCart));
+    addToCart(newItem);
     alert('Added to cart!');
   };
 
